@@ -296,7 +296,7 @@ if __name__ == '__main__':
         LargeFile = sys.argv[1]
         tarDir = sys.argv[2]
         n = int(sys.argv[3])
-    except Excetion as e:
+    except Exception as e:
         print("error: {}".format(e))
         print("""Usage: you need input 3 parameters.
             1. path of LargeFile.
