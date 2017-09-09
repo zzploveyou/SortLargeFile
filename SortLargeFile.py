@@ -280,10 +280,11 @@ class SortLargeFile:
                 os.path.basename(os.path.splitext(self.LargeFile)[0]), merge_num))
             # print "sizes:{}".format(self.sizes)
             for i in range(k):
-                filename = sorted_sizes[i][0]
-                filenames.append(filename)
-                self.sizes[newname] += self.sizes[filename]
-                self.sizes.pop(filename)
+                if i < len(sorted_sizes): # don't have enough files.
+                    filename = sorted_sizes[i][0]
+                    filenames.append(filename)
+                    self.sizes[newname] += self.sizes[filename]
+                    self.sizes.pop(filename)
             # print "filenames:{}, newname:{}".format(filenames, newname)
             self.merge_file(filenames, newname)
         print("result total num: {}".format(self.sizes[newname]))
