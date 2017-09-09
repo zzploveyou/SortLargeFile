@@ -14,4 +14,9 @@ def getRandomGFile(filename, G):
                 f.write("{}\n".format(random.random()))
 
 if __name__ == '__main__':
-    getRandomGFile("BigFile.txt", G=0.1)
+    import sys
+    try:
+        getRandomGFile("BigFile.txt", G=float(sys.argv[1]))
+    except:
+        print("""Usage: python GetRandomFile.py 1,
+            You need one float parameter as the size of file.""")
